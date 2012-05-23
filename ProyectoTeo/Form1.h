@@ -102,12 +102,12 @@ namespace ProyectoTeo {
 	private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
 			 }
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
-				 MessageBox::Show("Hola Mundo");
-				 if this->textBox1->text = 0{
-					 MessabeBox::Show("el valor ingresado es 0");
+				 
+				 if ( this->textBox1->Text == ""){
+					 MessageBox::Show("La Cadena se encuentra vacia");
 				 }
 			 }
 	};
-	r
+	
 }
 
