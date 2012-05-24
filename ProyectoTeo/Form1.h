@@ -94,6 +94,7 @@ namespace ProyectoTeo {
 			this->Controls->Add(this->label1);
 			this->Name = L"Form1";
 			this->Text = L"Form1";
+			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -103,11 +104,41 @@ namespace ProyectoTeo {
 			 }
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 				 
-				 if ( this->textBox1->Text == ""){
-					 MessageBox::Show("La Cadena se encuentra vacia");
+				 if ( this->textBox1->Text == "" )
+				 {
+						
+						MessageBox::Show("La Cadena se encuentra vacia" );
 				 }
+
+				 if ( this->textBox1->Text != "0" || this->textBox1->Text != "1")
+				 {
+					 MessageBox::Show("La Palabra no pertenece al Lenguaje");
+				 }
+					 
+
 			 }
-	};
+
+	private: System::Void Form1_Load(System::Object^  sender, System::EventArgs^  e) {
+			 }
 	
+
+	private: System::Void textBox1_KeyDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e){
+			bool nonNumberEntered = false;
+			if ( e->KeyCode < Keys::D0 || e->KeyCode > Keys::D9 )
+			{
+				if ( e->KeyCode < Keys::NumPad0 || e->KeyCode > Keys::NumPad9 )
+				{
+					if ( e->KeyCode != Keys::Back )
+					{
+						nonNumberEntered = true;
+							if (nonNumberEntered = true)
+							{
+							MessageBox::Show("El String ingresado contiene un lenguaje no valido");
+							}
+					}
+				}
+			}
+		}
+	};
 }
 
